@@ -1,0 +1,8 @@
+iostream
+iomanip						// manipulator
+	setpercision(number_of_decimals :int)
+	setw(character width :int)
+		cout << setw(5) << left << ...; 	//aligns the left
+		cout << setw(20) << right << ...;	//aligns the right
+	setfill(charater_default :char)			// change character default when use setw
+		cout << setfill('.');		// use . instead of ' '

@@ -1,0 +1,45 @@
+							BASICS
+<< 			// insertion operator
+>>			// extraction operator
+cout			// use default cout percision of 6
+<< endl;		>> auto delete buffer 
+<< "\n" << flush;	>> delete buffer by user (ENCOURAGE)
+input/output systems
+	binary system		bin
+	octal system		oct
+	decimals system		dec
+	hexadecimal system	hex
+	cin >> name_system >> var;
+		cin >> hex >> n;
+	cout << name_system << var;
+
+							VARIABLE
+natural pressing
+	cout << 9.0/2;
+pressing
+	static_cast<type_data>
+initialization types
+	int a = 1;	//copy initialization
+	int a(2);	//direct initialization
+	int a{3};	//uniform initialization
+bool
+	cout << std::boolalpha
+		cout << true << endl;	// true
+		cout << flase << endl;	// flase
+	cout << std::noboolalpha
+		cout << true << endl;	// 1
+		cout << flase << endl;	// 0
+initializations of floating point numbers
+	float a = 0.4f;
+	double b = 0.4;
+	double c{ 69000.0}	~ double c(6.9e4)
+	double d(0.00069)	~ double d{6.9E - 4}
+
+	cout << std::setpercision(number_of_decimals);
+	cout << ...;
+rounding error in floating point numbers
+	double d1 = 1.0;
+	double d2{0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1}
+	cout << std::setpercision(number_of_decimals);
+	cout << d1 << endl;	// 1.0
+	cout << d2;		// 0.9999999999999999878
