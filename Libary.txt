@@ -1,4 +1,12 @@
 iostream
+	std::cin.ignore()
+	std::cin.ignore(32767, '\n');
+	typeid(var).name();			>> return type data of var
+string
+	getline(cin, str :string);		// the default ends with '\n'
+	getline(cin, str, ch :char);		// ends with ch
+	length();
+	size();
 iomanip						// manipulator
 	setpercision(number_of_decimals :int)
 	setw(character width :int)

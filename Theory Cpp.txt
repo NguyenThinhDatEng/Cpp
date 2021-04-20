@@ -14,10 +14,38 @@ input/output systems
 	cout << name_system << var;
 
 							VARIABLE
-natural pressing
-	cout << 9.0/2;
+TYPE
+	local varible
+	static variable		s_var
+		E.g. generate ID (funtion)
+	global variable		g_var
+
+CONVERSION
+	*** Implicit type conversion
+	long double (highest) > double > float > unsigned long long > long long > unsigned long > long > unsigned int > int (lowest)
+	Nếu các toán hạng là một số nguyên có miền giá trị nhỏ hơn kiểu int (bool, char, short)
+	=> toán hạng sẽ automatically chuyển về int hoặc unsigned int
+	
+	*** Explicit type conversion
+	Nếu các toán hạng trong một biểu thức có miền giá trị khác nhau, các toán hạng tự động chuyển kiểu dữ liệu giống toán hạng
+	có miền giá trị lớn nhất
+	E.g.
+		double d = 1.0/2;
+	
+		int a;
+		int b;
+		double = a / b * 1.0;
+	1. C-style cast
+	(type_data)var;
+	type_data(var) / var1;
+	2. static_cast
+	static_cast<type_data> expression
+	static_cast<type_data>(var)
+
+
 pressing
 	static_cast<type_data>
+
 initialization types
 	int a = 1;	//copy initialization
 	int a(2);	//direct initialization
@@ -29,6 +57,7 @@ bool
 	cout << std::noboolalpha
 		cout << true << endl;	// 1
 		cout << flase << endl;	// 0
+
 initializations of floating point numbers
 	float a = 0.4f;
 	double b = 0.4;
@@ -43,3 +72,18 @@ rounding error in floating point numbers
 	cout << std::setpercision(number_of_decimals);
 	cout << d1 << endl;	// 1.0
 	cout << d2;		// 0.9999999999999999878
+
+							NOTE
+Don't compare two floating point numbers
+always use "()" when employ logical operator(NOT, AND, OR)
+Buffer
+	// When any information is entered from the keyboard, that information will be buffered
+	int n;
+	cin >> n;	=> Suppose to type 1 and enter
+	// Here type 1 and enter, instantly 1 and enter is buffered
+	// the buffer contains two characters 1 và "\n"
+	string str;
+	// when encounter "\n" getline will automatically get all the data in the cache and to save it to str
+	getline(cin, str);
+	// but when finished importing n and type enter so n only give 1 => only enter in the cache
+	=> getline is called, lấy hết trong bộ nhớ đệm ra, encounter enter => nó nghĩ đã kết thúc chuỗi dữ liệu vừa nhập rồi => bộ nhớ đệm k còn j hết

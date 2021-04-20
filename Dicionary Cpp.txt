@@ -1,0 +1,48 @@
+
+Binary: toán tử 2 ngôi
+block : khối lệnh
+
+expression /ɪkˈspreʃn/: biểu thức
+
+operator precedence /ˈɒpəreɪtə(r)ˈpresɪdəns/: độ ưu tiên toán tử 
+
+postfix		  : hậu tố
+prefix /ˈpriːfɪks/: tiền tố
+
+Ternary: toán tử 3 ngôi
+
+Unary /ˈjuːnəri/: toán tử 1 ngôi
+Unary plus	: (+)	(+x)	dấu dương
+Unary minus	: (-)	(-x)	dấu âm
+
+OPERATOR
+Addition /əˈdɪʃn/: 		: + 
+Subtraction /səbˈtrækʃn/	: - 
+Multiplication /ˌmʌltɪplɪˈkeɪʃn/: * 
+Division /dɪˈvɪʒn/		: / 
+Modulus				: %
+Remainder /rɪˈmeɪndə(r)/	: Modulus
+
+greater than			: >
+less than /les/			: <
+equals /ˈiːkwəl/		: =
+equality /iˈkwɒləti/		: ==
+Inequality			: !=
+
+BITWISES
+left shift : <<
+right shift: >>
+bitwise NOT: ~
+bitwise AND: &
+bitwise OR : |
+bitwise XOR: ^
+
+Misc
+sizeof
+comma
+.(dot)
+->(arrow)
+Cast
+&
+*
+
