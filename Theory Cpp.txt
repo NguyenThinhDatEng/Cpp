@@ -10,8 +10,213 @@ input/output systems
 	decimals system		dec
 	hexadecimal system	hex
 	cin >> name_system >> var;
-		cin >> hex >> n;
+E.g.		cin >> hex >> n;
 	cout << name_system << var;
+
+just declare 	>> system save this in stack memory
+delete (in C++) >> trao lại vùng nhớ cho HĐH
+
+							Pass to function
+*** pass the address to the function
+	void funtion(int* ptr) {}
+	int var;
+	function(&var);
+=> used for Array
+	int *p = &var;
+	function(p);
+=> ptr is a copy of p (Both p and ptr point to memory area of var)
+			ptr can't change the value of p (is the address of var)
+			ptr can set the value of var
+*** pass the reference to the function
+	void function(int* &ptr){}
+	int *p;
+	function(p)
+=> ptr and p are one. 
+
+							Vector
+*** initialize
+	vector<type_data> <name_array> {};
+		vector<int> arr {1, 2, 3};
+*** At
+	arr[i]					// not check the range
+	arr.at(i)				// check
+*** Size
+	arr.size();
+*** Resize
+	arr.resize(new_size: int)		// change size of arr
+*** capacity
+	arr.capacity(): int			// returns the largest number of elements in the array since the declaration
+*** Like stack
+	vector<int> stack;
+	stack.push_back(element);		// add a new element to the end vector
+	stack.pop_back();			// delete the end element of vector
+	stack.back(): element			// return the end element of vector
+
+							Type (a new type_data)
+INT
+DOUBLE
+							Reference variables
+&
+	<type_data> &ref = var;
+		int &ref = value;
+>> bí danh
+							Pointer and const
+pointer const
+	<type_data> *const ptr = &abc;
+						>> can change the value of *ptr
+						>> can't change the address of ptr
+const pointer
+	const <type_data> ptr = &abc;
+						>> can't change the value of *ptr						
+						>> can change the address of ptr
+const pointer const	
+						>> can't change the address of ptr
+						>> can't change the value of *ptr
+							Dynamic memory allocation
+NEW
+*** a value
+	<type_data> *ptr = new <type_data>;
+	<type_data> *ptr = new <type_data>(element);
+Note: Cẩn thận rò rỉ bộ nhớ
+*** an array
+	<type_data> *arr = new <type_data>[numberOfElements];
+	<type_data> *arr = new <type_data>[numberOfElements] {};
+DELETE
+	delete ptr;
+	delete[] arr;
+	
+							Pointers
+NULL pointers
+*** declare
+	1. type_data *p{ 0 };
+	2. type_data *p1; => garbage pointer
+	   >> *p1 = 0	=> NULL pointer			~ false
+	3. type_data *p = nullptr;
+With Array
+*** address
+int arr[2] {};
+arr = &arr = &arr[0];
+ 
+							foreach
+for (int &var : arr)
+{
+	cout << var << arr;
+}
+>> pass by reference
+							auto
+automatically accepts the data type based on 
+1, the variable being initialized
+E.g.
+	auto var = 1;	// int
+2, type_return of function
+E.g.
+	auto sum(int a, int b)
+	{
+		return a + b;
+	}
+
+*** declare function
+auto <name_function>(..) -> <type_reuturn>;
+							array
+array libary
+	array <type_data, numberOfElements> <name_arr> = {...};
+	
+
+#defint MAX 5
+*** initialize array 1D
+int a[2] = {1, 2};	// 1 2
+int a[] = {1,3};	// 1 3
+int a[2] {3}		// 3 0
+int a[MAX] {1,3}	// 1 3 0 0 0
+*** Passing arrays to functions
+<type_return> <name_function>	(int a[numberOfElements]) {}
+				(int a[]) {}
+				(int *a) {}
+
+<type_return> <name_function>	(int a[][numberOfColumbs]){}
+				(int (*a)[numberOfColumbs]){}
+*** character array
+C-style: char <name_array>[numberOfCharacter];
+std::string:
+	cin.getline(name_array, numberOfCharacter + 1); 
+							continue
+to jump to end of loop body
+							check
+if (cin.fail())
+{
+	cin.clear();
+	cin.ignore();
+}	
+							goto(avoid)
+goto <name_label>;
+Create a label:
+	<name_label>:
+	E.g.
+		label1:
+			cout << "123";
+		goto label;
+		goto label1;
+		label:
+			cout << "abc";
+							switch
+switch(expression) {
+case:
+	declare variable;
+	statements
+	break;
+case:
+{
+	initialize variable;		E.g. int var = 1;
+	statements
+	break;
+}
+default:
+	statements
+	break;
+}
+
+for each (object var in collection_to_loop)
+{
+	
+}
+try 
+{
+
+}
+catch (const std::exception&)
+{
+	throw
+}
+							Forward declaration
+with any variable <primitive type>	extern		>< define
+	extern int iValue;
+=> Complier does not need to allocate memory
+
+							PASSING
+Parameter
+	showIntN(int n) {
+		cout << n;
+	}
+	=>>> parameter is n;
+
+	showIntN(int &n) {
+		cout << n;
+	}
+	=>>> parameter is a reference;
+
+	showIntN(const int &n) {
+		cout << n;
+	}
+	=>>> parameter is a const reference is n;
+Argument
+	showIntN(n);
+	=>>> this caller function has an argument is n;
+Passing arguments by value		MAKE A ONE COPY
+					should not be used with Array, Struct, Class
+Pass by reference			&
+	Pass by const reference		should not be used with int, float, double, ...
+
+				
 
 							VARIABLE
 TYPE

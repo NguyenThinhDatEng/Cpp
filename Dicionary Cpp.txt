@@ -1,13 +1,20 @@
 
+argument /ˈɑːɡjumənt/: đối số
+
 Binary: toán tử 2 ngôi
 block : khối lệnh
 
 expression /ɪkˈspreʃn/: biểu thức
 
+forward declaration: tiền khai báo
+
 operator precedence /ˈɒpəreɪtə(r)ˈpresɪdəns/: độ ưu tiên toán tử 
 
-postfix		  : hậu tố
-prefix /ˈpriːfɪks/: tiền tố
+parameter /pəˈræmɪtə(r)/: tham số
+postfix		  	: hậu tố
+prefix /ˈpriːfɪks/	: tiền tố
+
+reference: tham chiếu
 
 Ternary: toán tử 3 ngôi
 
