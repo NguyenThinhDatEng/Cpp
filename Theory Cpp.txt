@@ -16,6 +16,8 @@ E.g.		cin >> hex >> n;
 just declare 	>> system save this in stack memory
 delete (in C++) >> trao lại vùng nhớ cho HĐH
 
+							NULL
+= nullptr
 							Pass to function
 *** pass the address to the function
 	void funtion(int* ptr) {}
