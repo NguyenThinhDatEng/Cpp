@@ -51,6 +51,16 @@ void multiply2Matrices(int** a, int** b, int** c, int n)
 				c[i][j] += a[i][k] * b[k][j];
 }
 
+void free_mem(int** mt, int m, int n) {
+	//# Free memory
+
+	for (int i = 0; i < m; i++)
+	{
+		delete[] * (mt + i);
+	}
+	delete[] mt;
+}
+
 void main()
 {
 	int** a, ** b;	// two square matrixs input
@@ -85,4 +95,8 @@ void main()
 	sumOfTwoSquareArr(a, b, c, n);
 	cout << "The sum of 2 matrices:\n";
 	display2Darray(c, n, n);
+
+	free_mem(a, n, n);
+	free_mem(b, n, n);
+	free_mem(c, n, n);
 }
