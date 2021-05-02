@@ -15,7 +15,131 @@ E.g.		cin >> hex >> n;
 
 just declare 	>> system save this in stack memory
 delete (in C++) >> trao lại vùng nhớ cho HĐH
+								auto
+automatically accepts the data type based on 
+1, the variable being initialized
+E.g.
+	auto var = 1;	// int
+	auto d { 5.0 }; // d will be type double
 
+2, type_return of function
+E.g.
+	auto sum(int a, int b)
+	{
+		return a + b;	// int
+	}
+*** declare function
+auto <name_function>(..) -> <type_reuturn>;
+3, the values of parameters
+E.g.
+	auto maxval(auto x, auto y){
+		return (x > y) ? x : y;
+	}
+	double d = maxval(6.34, 18.523); // returns 18.523
+	char ch = maxval('a', '6'); 	// returns 'a'
+								Function templates
+syntax: template <parameter-list> function-declaration
+E.g.
+	#include<iostream>
+	using namespace std;
+	template <typename T>
+
+	T maxval(T x, T y){
+		return (x > y) ? x : y;
+	}
+							Function pointer
+E.g.
+	int foo(){
+		return 0;
+	}
+	int main(){
+		int n = foo();
+		return 0;
+	}
+When the main function runs to the command line that calls the foo function, 
+the operating system will find the address of the foo function on the virtual memory 
+and pass the code of the foo function to the CPU to continue processing.
+
+syntax: <return_type> (*<name_of_ptr>) (<data_type_of_parameters>);
+E.g.1
+	int foo(){return 0}
+	int (*pFoo)();
+E.g.2
+	void swapValue(int &v1, int &v2);
+	void (*pSwap) (int &, int &);
+E.g.3
+	bool ascending(int left, int right){
+		return left > right;
+	}
+	bool descending(int left, int right){
+		return left < right;
+	}
+	void selectionSort(int *arr, int length, bool (*comparisonFunc)(int, int)){}
+
+
+
+							Default parameter
+E.g.	void MyDelay(long Loops = 100)
+		statements
+	}
+	MyDelay(); 	// Loops = 100;
+	MyDelay(200); 	// Loops = 200;
+=> the number of arguments in the function call may be less than parameter definition
+Note:
+	int MyFunc(int a = 1, int b, int c = 3, int d = 4); // ✖
+	int MyFunc(int a, int b = 2, int c = 3, int d = 4); // ✔
+							Operator overloadingsyn
+syntax: data_type "operator" operator_symbol (parameters) {
+		...
+	}
+E.g.	SP operator + (SP C1,SP C2) { 
+		SP tmp; 
+		tmp.real = C1.real + C2.real; 
+		tmp.img = C1.img + C2.img; 
+		return tmp; 
+	}
+	main()
+	{
+		C3 = C2 + C1;
+	} 				
+Note:
+	New operators cannot be defined
+		::
+		.* access to pointer (struct, class, ...)
+		.  access to field of (struct, class, ...)
+		?: conditional operator
+		sizeof
+	Cann't have parameters with default parameter
+							
+							Overloading
+E.g. 	int abs(int i);
+	double abs(double d);
+	long abs(long l);
+							Function return
+*** value
+	normal
+avoid: array, struct, class
+should: return variables are declared in the function
+*** address "*"
+E.g.	int* abc(){
+		int *ptr;
+		return &var;
+		return ptr;
+	}
+	
+	int* allocate_mem(){
+		return new int[10];
+
+should: return the address of allocation area
+		objects are passed as address
+avoid: return variables are declared in the function
+		class, struct, array
+
+*** reference "&"
+E.g.	int& getElement(int *a, int idx){
+		return a[idx];
+	}
+	
 							NULL
 = nullptr
 							Pass to function
@@ -92,7 +216,7 @@ NULL pointers
 *** declare
 	1. type_data *p{ 0 };
 	2. type_data *p1; => garbage pointer
-	   >> *p1 = 0	=> NULL pointer			~ false
+	   >> *p1 = 0	=> NULL pointer		~ false
 	3. type_data *p = nullptr;
 With Array
 *** address
@@ -105,20 +229,7 @@ for (int &var : arr)
 	cout << var << arr;
 }
 >> pass by reference
-							auto
-automatically accepts the data type based on 
-1, the variable being initialized
-E.g.
-	auto var = 1;	// int
-2, type_return of function
-E.g.
-	auto sum(int a, int b)
-	{
-		return a + b;
-	}
-
-*** declare function
-auto <name_function>(..) -> <type_reuturn>;
+						
 							array
 array libary
 	array <type_data, numberOfElements> <name_arr> = {...};
