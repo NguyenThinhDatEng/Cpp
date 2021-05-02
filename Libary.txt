@@ -16,7 +16,8 @@ iostream
 	typeid(var :type_data).name();			>> return type data of var
 E.g.		typeid(&iVar).name() = int *
 		typeid(array).name() = int [numberOfElements]
-
+algorithm
+	sort
 array
 	type_data: array <type_data, numberOfElements> <name_arr> = {...};
 	at(ndexOfElement): element						// throw an errol, then stop program (safer arr[index]);
@@ -48,8 +49,9 @@ cstdlib
 ctime
 	time(NULL)				>> return real time of system
 
-iomanip						// manipulator
-	setpercision(number_of_decimals :int)
+iomanip						// manipulator (thao tác)
+	fixed						// nói rằng sẽ có một số chữ số thập phân cố định sau dấu thập phân
+	setpercision(number_of_decimals :int)		// độ chính xác tối thiểu
 	setw(character width :int)
 		cout << setw(5) << left << ...; 	//aligns the left
 		cout << setw(20) << right << ...;	//aligns the right
