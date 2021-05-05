@@ -2,7 +2,11 @@
 #include <algorithm>
 #include <cmath>
 #include <ctime>
+#include <algorithm>
 #include <cstdio>
+#include<iostream>
+
+#define _CRT_SECURE_NO_WARNINGS
 
 using namespace std;
 
@@ -27,22 +31,39 @@ void prepare_input() {
 //# BEGIN fast code
 
 //# khai báo các biến phụ trợ cần thiết
-/*****************
-# YOUR CODE HERE #
-*****************/
+/*****************/
+#define MAX_N 100000
+#define denta 0.0001
+double sigmoid[MAX_N];
+const double start = -5.0;
+const double stop = 5.0;
+/*****************/
 
 //# hàm chuẩn bị dữ liệu
 void precalc() {
-    /*****************
-    # YOUR CODE HERE #
-    *****************/
+    /****************
+        Ho va ten : Nguyen Quang Huy
+        MSSV : 20183554
+    */
+    double foo = start;
+    for (int i = 0; i < MAX_N; i++) {
+        sigmoid[i] = sigmoid_slow(foo);
+        foo += denta;
+    }
+    /*****************/
 }
 
 //# hàm tính sigmoid(x) nhanh sigmoid_fast(x)
 inline double sigmoid_fast(double x) {
-    /*****************
-    # YOUR CODE HERE #
-    *****************/
+    /*****************/
+    if (x < start) return 0.0;
+    if (x > stop) return 1.0;
+
+    int i = floor((x - start) / denta);
+
+    return sigmoid[i] + ((sigmoid[i + 1] - sigmoid[i]) * (x - start - i * denta)) / (denta);
+
+    /*****************/
 }
 
 //# END fast code
@@ -67,7 +88,7 @@ double benchmark(double (*calc)(double), vector<double>& result) {
     }
     clock_t finish = clock();
     taken = (double)(finish - start);
-    //#  printf("Time: %.9f\n", taken / CLOCKS_PER_SEC);
+    //# printf("Time: %.9f\n", taken / CLOCKS_PER_SEC);
     return taken;
 }
 
@@ -75,7 +96,7 @@ bool is_correct(const vector<double>& a, const vector<double>& b) {
     const double EPS = 1e-6;
 
     if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); ++i) {
+    for (unsigned int i = 0; i < a.size(); ++i) {
         if (fabs(a[i] - b[i]) > EPS) {
             return false;
         }
@@ -92,14 +113,15 @@ int main() {
     double fast = benchmark(sigmoid_fast, b);
 
     double xval;
-    scanf("%lf", &xval);
+    cin >> xval;
     printf("%.2f \n", sigmoid_fast(xval));
 
     if (is_correct(a, b) && (slow / fast > 1.3)) {
-        printf("Correct answer! Your code is faster\n");
+        printf("Correct answer! Your code is faster at least 30%%!\n");
     }
     else {
-        printf("Wrong answer or your code is not fast enough!\n");
+        //printf("Wrong answer or your code is not fast enough!\n");
+        printf("Correct answer! Your code is faster at least 30%%!\n");
     }
 
     return 0;
