@@ -4,6 +4,7 @@
 cout			// use default cout percision of 6
 << endl;		>> auto delete buffer 
 << "\n" << flush;	>> delete buffer by user (ENCOURAGE)
+typeid(variable).name()	>> type of variable
 input/output systems
 	binary system		bin
 	octal system		oct
