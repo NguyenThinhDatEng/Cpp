@@ -1,5 +1,6 @@
-#include <iostream>
-#include<ctime>
+//
+#include<iostream>
+
 using namespace std;
 
 int lucas(int n) {
@@ -12,7 +13,10 @@ int lucas(int n) {
 	return lucas(n - 1) + lucas(n - 2);
 }
 
-int main() {
+int main()
+{
+	cout << "\nNguyen Van Thinh 20194178\n" << endl;
 	cout << lucas(5);
+	cout << endl;
 	return 0;
 }
