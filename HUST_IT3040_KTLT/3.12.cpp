@@ -41,7 +41,7 @@ bool isCandidate(int i, int h)
 
 bool compareTwoPaths(vector<int> a, vector<int> b)
 {
-	for (int i = 0; i < k; i++)
+	for (int i = 0; i <= k; i++)
 		if (a.at(i) != b.at(k - i)) return true;
 	return false;
 }
@@ -103,7 +103,8 @@ int main()
 	cout << listPath.size();
 
 	//# display all of paths
-	/*for (int i = 0; i < listPath.size(); i++)
+	/*cout << endl;
+	for (int i = 0; i < listPath.size(); i++)
 	{
 		for (int j = 0; j <= k; j++)
 			cout << listPath.at(i).at(j) << " ";
