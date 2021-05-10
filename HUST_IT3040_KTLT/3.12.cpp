@@ -67,7 +67,7 @@ void TRY(int h)
 		if (isCandidate(i, h))
 		{
 			visited.push_back(i);
-			if (h == k && visited.size() == n)
+			if (h == k)
 				solution();
 			else
 				TRY(h + 1);
