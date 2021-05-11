@@ -51,5 +51,6 @@ int main() {
         }
         top.j++;
     }
+    delete[] x;
     return 0;
 }
