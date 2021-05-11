@@ -42,9 +42,11 @@ void TRY(int k)
 	}
 }
 
+void free2Darray(int** a, int n);
+
 int main()
 {
-	cout << "\nNguyen Van Thinh 20194178\n" << endl;
+	//cout << "\nNguyen Van Thinh 20194178\n" << endl;
 	cin >> n >> photographers;
 	initializeArr(c, n);
 	visited = new bool[n + 1];
@@ -86,6 +88,9 @@ int main()
 		lst.clear();
 		photographers--;
 	} while (photographers > 0);
+
+	free2Darray(c, n);
+	delete[] visited;
 	return 0;
 }
 
@@ -113,4 +118,11 @@ inline void solution()
 {
 	if (minCost > costTotal)
 		minCost = costTotal;
+}
+
+void free2Darray(int** a, int n)
+{
+	for (int i = 0; i < n; i++)
+		delete[] * (a + i);
+	delete[] a;
 }
