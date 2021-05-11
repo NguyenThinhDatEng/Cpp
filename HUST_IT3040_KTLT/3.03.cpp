@@ -77,6 +77,7 @@ int main()
 	cout << minCost;
 
 	free2Darray(c, n);
+	delete[] x;
 	cout << "\n" << endl;
 	return 0;
 }
