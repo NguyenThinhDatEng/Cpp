@@ -3,6 +3,7 @@
 #include <iomanip>
 #include <Windows.h>
 #include <limits.h>
+#include <string>
 
 using namespace std;
 
