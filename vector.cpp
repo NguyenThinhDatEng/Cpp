@@ -8,10 +8,12 @@ void displayList(vector<vector<int>> list)
 			cout << var << " ";
 		cout << endl;
 	}
+	cout << endl;
 }
 
 void displayList(vector<int> list)
 {
 	for (int var : list)
 		cout << var << " ";
+	cout << endl;
 }
