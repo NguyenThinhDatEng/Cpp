@@ -17,6 +17,7 @@ int aramic(std::vector<std::string> words)
         string result = "";
         for (auto ch : tmp)
             result += ch;
+        s.insert(result);
         lengthWords--;
     } while (lengthWords > 0);
     return s.size();
