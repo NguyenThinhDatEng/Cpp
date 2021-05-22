@@ -40,7 +40,7 @@ void main()
 	srand(time(NULL));
 	do
 	{
-		n = new_random_number(10, 20);
+		n = new_random_number(15, 30);
 		m = new_random_number(15, 30);
 		int j = 0;
 		while (j < m)

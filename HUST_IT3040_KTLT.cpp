@@ -1,52 +1,49 @@
-﻿#include <stdio.h>
-#include <vector>
-#include <queue>
-#include <Windows.h>
+﻿//
 #include <iostream>
+#include <vector>
+
 using namespace std;
+vector<int> pairsOfleverets;
 
-const int oo = 1000111000;
-typedef pair<int, int> ii;
-
-vector<ii> a[2309];
-int n, m;
-
-int d[2309];
-
-void dijkstra() {
-    priority_queue<ii, vector<ii>, greater<ii>> pq;
-    for (int i = 1; i <= n; i++)
-        d[i] = oo;
-    d[1] = 0;
-    pq.push(ii(0, 1));
-
-    while (pq.size()) {
-        int u = pq.top().second;
-        int du = pq.top().first;
-        pq.pop();
-        if (du != d[u])
-            continue;
-
-        for (int i = 0; i < a[u].size(); i++) {
-            int v = a[u][i].second;
-            int uv = a[u][i].first;
-            if (d[v] > du + uv) {
-                d[v] = du + uv;
-                pq.push(ii(d[v], v));
-            }
-        }
-    }
+int numberOfPairsOfRabbits(int month)
+{
+	if (month < 3) return 1;
+	return numberOfPairsOfRabbits(month - 1) + numberOfPairsOfRabbits(month - 2);
 }
 
-int main() {
-    int p, q, m, w;
-    cin >> n >> m;
-    while (m--) {
-        cin >> p >> q >> w;
-        a[p].push_back(ii(w, q));
-        a[q].push_back(ii(w, p));
-    }
-    dijkstra();
-    for (int i = 1; i <= n; i++)
-        printf("d( 1 -> %d ) = %d\n", i, d[i]);
+int calculateMoney(int month, int money)
+{
+	if (month < 12) return 0;
+	if (month == 12) return money + 10;
+	money += pairsOfleverets.at(month - 11) * 10;
+	return calculateMoney(month - 1, money);
+}
+
+int main()
+{
+	cout << "\nNguyen Van Thinh 20194178\n" << endl;
+	int n;
+	cout << "Enter month: ";
+	cin >> n;
+	cout << "The number of pairs of rabbits after " << n << " months : ";
+	cout << numberOfPairsOfRabbits(n) << endl;
+
+	cout << "Enter month: n = ";
+	cin >> n;
+	int m;
+	cout << "Enter the number of pairs of rabbits: m = ";
+	cin >> m;
+	pairsOfleverets.push_back(0);	// don't have rabbits
+	pairsOfleverets.push_back(1);	// month 1st
+	pairsOfleverets.push_back(0);	// month 2nd	
+
+	for (int i = 3; i <= 4; i++)
+		pairsOfleverets.push_back(numberOfPairsOfRabbits(i) - numberOfPairsOfRabbits(i - 1));	// from month 3th to month 4th
+	for (int i = 5; i <= n; i++)
+		pairsOfleverets.push_back(pairsOfleverets.at(i - 2) + pairsOfleverets.at(i - 1));
+	cout << "amount earned: ";
+	cout << m * calculateMoney(n, 0) << "$";
+
+	cout << "\n" << endl;
+	return 0;
 }
