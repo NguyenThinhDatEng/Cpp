@@ -17,3 +17,11 @@ void displayList(vector<int> list)
 		cout << var << " ";
 	cout << endl;
 }
+
+void displayVector(vector<string> list)
+{
+	for (string s : list)
+	{
+		cout << s << endl;
+	}
+}

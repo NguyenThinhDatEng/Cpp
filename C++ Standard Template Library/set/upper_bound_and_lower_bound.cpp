@@ -1,10 +1,10 @@
 /*
-    upper_bound(value) Returns the iterator to the position of the smallest element that is greater than the key
+    upper_bound(key) Returns the iterator to the position of the smallest element that is greater than the key
 	if not found return set.end()
 */
 
 /*
-	lower_bound(value) Returns iterator to the smallest element position that is not less than (greater than or equal to) the key
+	lower_bound(key) Returns iterator to the smallest element position that is not less than (greater than or equal to) the key
 	if not found return set.end()
 */
 #include "set.h"
