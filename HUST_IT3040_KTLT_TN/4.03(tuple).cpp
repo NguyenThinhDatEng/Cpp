@@ -14,7 +14,7 @@ Vector cross_product(Vector a, Vector b) {
 }
 
  int main() {
-     cout << "\nNguyen Van Thinh 20194178\n" << endl;
+     cout << "Nguyen Van Thinh 20194178\n";
      cout << setprecision(2) << fixed;
      Vector a {1.2, 4, -0.5};
      Vector b {1.5, -2, 2.5};

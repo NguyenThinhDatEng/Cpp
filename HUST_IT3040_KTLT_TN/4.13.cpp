@@ -1,37 +1,64 @@
-//
 #include <iostream>
-#include <map>
+#include <string>
 
 using namespace std;
+const int MAX = 1000000;
+string str;
+int n, cnt;
+int slg0[MAX]; // slg0[i] la dem so  luong so 0 trong khoang 0 toi i
+int slg1[MAX]; // slg0[i] la dem so  luong so 1 trong khoang 0 toi i
 
-int countSub_string(string binaryString)
-{
-	map<char, int> mp;
-	int res = 0;
+void input() {
+    cnt = 0;
+    cin >> str;
+    n = str.length();
 
-	int lengthParent = binaryString.size();
-	int lengthSon = 2;
-	do
-	{
-		for (int i = 0; i <= lengthParent - lengthSon; i++)
-		{
-			mp.clear();
-			for (int j = 0; j < lengthSon; j++)
-				mp[binaryString[i + j]]++;
-			if (mp.size() == 2 && mp['1'] == mp['0'])
-				res++;
-		}
-		lengthSon += 2;
-	} while (lengthSon <= lengthParent);
-	return res;
+    for (int i = 0; i < n; i++) {
+        if (i == 0) {
+            if (str[i] == '0') {
+                slg0[i] = 1;
+                slg1[i] = 0;
+            }
+            else {
+                slg0[i] = 0;
+                slg1[i] = 1;
+            }
+            continue;
+        }
+
+        if (str[i] == '0') {
+            slg0[i] = slg0[i - 1] + 1;
+            slg1[i] = slg1[i - 1];
+        }
+        else {
+            slg0[i] = slg0[i - 1];
+            slg1[i] = slg1[i - 1] + 1;
+        }
+    }
 }
 
-int main()
-{
-	//cout << "\nNguyen Van Thinh 20194178\n" << endl;
-	string str;
-	cin >> str;
-	cout << countSub_string(str);
-	//cout << "\n" << endl;
-	return 0;
+void solve() {
+    for (int i = 0; i < n; i++) {
+        for (int j = i + 1; j < n; j = j + 2) {
+            if (i == 0) {
+                if (slg0[j] == slg1[j]) cnt++;
+            }
+            else {
+                int c0 = slg0[j] - slg0[i - 1];
+                int c1 = slg1[j] - slg1[i - 1];
+
+                if (c0 == c1) cnt++;
+            }
+        }
+    }
+}
+
+int main() {
+    cout << "\nNguyen Van Thinh 20194178\n" << endl;
+    ios_base::sync_with_stdio(false); cin.tie(NULL);
+    input();
+    solve();
+
+    cout << cnt;
+    return 0;
 }
