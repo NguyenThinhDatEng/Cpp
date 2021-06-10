@@ -37,10 +37,10 @@ void TRY(int k)
         }
     }
 }
-void main()
+int main()
 {
-    inp = freopen("D://NguyenThinhDatSci//Cpp//HUST_IT3040_KTLT_TN//LIS.inp", "r", stdin);
-    out = freopen("D://NguyenThinhDatSci//Cpp//HUST_IT3040_KTLT_TN//sol1.out", "w", stdout);
+    inp = freopen("LIS.inp", "r", stdin);
+    out = freopen("sol1.out", "w", stdout);
     int a, b;
     cin >> n >> m;
     for (int i = 1; i <= n; i++)
@@ -62,4 +62,5 @@ void main()
     flag[1] = true;
     TRY(2);
     cout << Smin;
+    return 0;
 }

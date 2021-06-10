@@ -8,9 +8,9 @@ FILE* inp, * out;
 
 using namespace std;
 
-int main() {//code trau
-    inp = freopen("D://NguyenThinhDatSci//Cpp//HUST_IT3040_KTLT_TN//LIS.inp", "r", stdin);
-    out = freopen("D://NguyenThinhDatSci//Cpp//HUST_IT3040_KTLT_TN//sol2.out", "w", stdout);
+int main() {
+    inp = freopen("LIS.inp", "r", stdin);
+    out = freopen("sol2.out", "w", stdout);
     int n, m;
     cin >> n >> m;
     vector<vector<int>> c(n, vector<int>(n, 1e8));
